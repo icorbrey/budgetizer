@@ -29,31 +29,27 @@ describe('The Funds reducer', () =>
 		testExpense3,
 	]
 
+	const state: FundsState = {
+		income: 1234,
+		expenses: testExpenses,
+	}
+
 	it('sets income to the given amount', () =>
 	{
-		const state: FundsState = {
-			income: 0,
-			expenses: testExpenses,
-		}
 
 		const action: FundsAction = {
 			type: 'SET_INCOME',
-			payload: 1234,
+			payload: 4321,
 		}
 
 		expect(fundsReducer(state, action)).toStrictEqual({
-			income: 1234,
+			income: 4321,
 			expenses: testExpenses,
 		})
 	})
 
 	describe('when adding an expense', () =>
 	{
-		const state: FundsState = {
-			income: 1234,
-			expenses: testExpenses,
-		}
-
 		it('adds an expense with a unique name', () =>
 		{
 			const action: FundsAction = {
@@ -83,11 +79,6 @@ describe('The Funds reducer', () =>
 
 	describe('when modifying an expense', () =>
 	{
-		const state: FundsState = {
-			income: 1234,
-			expenses: testExpenses,
-		}
-
 		it('modifies existing expenses', () =>
 		{
 			const action: FundsAction = {
@@ -124,11 +115,6 @@ describe('The Funds reducer', () =>
 
 	describe('when removing an expense', () =>
 	{
-		const state: FundsState = {
-			income: 1234,
-			expenses: testExpenses,
-		}
-
 		it('removes an existing expense', () =>
 		{
 			const action: FundsAction = {
